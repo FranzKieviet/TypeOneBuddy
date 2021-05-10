@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:gravity="center"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+
+        tools:srcCompat="@tools:sample/avatars" />
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/ivImage"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/background"
+        android:backgroundTint="#246893"
+        android:gravity="left"
+        android:paddingLeft="10dp"
+        android:text="Username"
+        android:textColor="#ffd700"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/tvUsername"
+        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="User Real Name"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/tvDia"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/tvName"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="Description"
+        android:textColor="#000000" />
+    <TextView
+        android:id="@+id/tvDrug"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/tvDia"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="Meds that the user is on"
+        android:textColor="#000000" />
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/tvDrug"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="Phone number to call if the user is in danger"
+        android:textColor="#000000" />
+    <TextView
+        android:id="@+id/tvNotes"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/tvPhone"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="Space to add extra messages"
+        android:textColor="#000000" />
+
+</RelativeLayout>
+

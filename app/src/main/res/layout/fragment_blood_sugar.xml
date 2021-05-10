@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/textViewNewPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="ENTER NEW BLOOD SUGAR VALUE:"
+        android:textSize="30sp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ivPostImage"
+        android:layout_width="match_parent"
+        android:src="@drawable/fingerstick"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp" />
+
+
+    <EditText
+        android:id="@+id/etBloodSugar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_centerVertical="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter your blood sugar here..."
+        android:textColorHint="#696969" />
+
+    <Button
+        android:id="@+id/btBreakfast"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="190dp"
+        android:backgroundTint="#246893"
+        android:textColor="#ffd700"
+        android:text="Breakfast" />
+
+    <Button
+        android:id="@+id/btLunch"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="190dp"
+        android:backgroundTint="#246893"
+        android:textColor="#ffd700"
+        android:text="Lunch" />
+
+    <Button
+        android:id="@+id/btDinner"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="125dp"
+        android:backgroundTint="#246893"
+        android:textColor="#ffd700"
+        android:text="Dinner" />
+
+    <Button
+        android:id="@+id/btSnack"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="125dp"
+        android:backgroundTint="#246893"
+        android:textColor="#ffd700"
+        android:text="Snack" />
+</RelativeLayout>

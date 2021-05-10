@@ -36,6 +36,10 @@ import com.parse.SaveCallback;
 import java.io.File;
 import java.util.List;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import static android.app.Activity.RESULT_OK;
 
 public class ComposeFragment extends Fragment {
@@ -43,6 +47,7 @@ public class ComposeFragment extends Fragment {
     public static final String TAG = "ComposeFragment";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     private EditText etDescription;
+    private EditText etTitle;
     private Button btnCaptureImage;
     private ImageView ivPostImage;
     private Button btnSubmit;
@@ -65,6 +70,7 @@ public class ComposeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         etDescription = view.findViewById(R.id.etDescription);
+        etTitle=view.findViewById(R.id.etTitle);
         btnCaptureImage = view.findViewById(R.id.btnCaptureImage);
         ivPostImage = view.findViewById(R.id.ivPostImage);
         btnSubmit = view.findViewById(R.id.btnSubmit);
@@ -83,15 +89,20 @@ public class ComposeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String description = etDescription.getText().toString();
+                String title = etTitle.getText().toString();
                 if(description.isEmpty()){
                     Toast.makeText(getContext(), "Description cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(title.isEmpty()){
+                    Toast.makeText(getContext(), "Title cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(photoFile==null || ivPostImage.getDrawable()==null){
                     Toast.makeText(getContext(), "Error while saving", Toast.LENGTH_SHORT).show();
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                savePost(description, currentUser, photoFile);
+                savePost(description, title, currentUser, photoFile);
             }
         });
     }private void launchCamera() {
@@ -146,13 +157,20 @@ public class ComposeFragment extends Fragment {
 
 
     }
+    private String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
 
 
-    private void savePost(String description, ParseUser currentUser, File photoFile) {
+    private void savePost(String description, String title, ParseUser currentUser, File photoFile) {
         Post post = new Post();
         post.setDescription(description);
         post.setImage(new ParseFile(photoFile));
         post.setUser(currentUser);
+        post.setDate(getDateTime());
+        post.setTitle(title);
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -163,6 +181,7 @@ public class ComposeFragment extends Fragment {
                 }
                 Toast.makeText(getContext(), "Post saved successfully!!", Toast.LENGTH_SHORT).show();
                 etDescription.setText("");
+                etTitle.setText("");
                 ivPostImage.setImageResource(0);
             }
         });
